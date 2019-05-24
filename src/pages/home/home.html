@@ -7,8 +7,24 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
+  <ion-card *ngFor="let note of notes" (click)="onItemClick(note)">
+  <ion-card-header>
+  {{note.date | date: 'dd/MM/yyyy'}}
+  </ion-card-header>
+  <ion-card-content>
+  <ion-card-title>
+  {{note.title}}
+  </ion-card-title>
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  {{note.content}}
   </p>
-</ion-content>
+  </ion-card-content>
+  </ion-card>
+  
+  <ion-fab end bottom>
+    <button ion-fab color="primary" (click)="onAddClick()">
+    <ion-icon name="add"></ion-icon>
+    </button>
+    </ion-fab>
+
+ </ion-content>
